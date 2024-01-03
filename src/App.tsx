@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ConnectWallet } from '@thirdweb-dev/react'
+import React from 'react'
+import Banner from './components/Banner'
+import UnclaimedNFTs from './components/UnclaimedNFTs'
 
-function App() {
-  const [count, setCount] = useState(0)
+type Props = {}
 
+function App({}: Props) {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container mx-auto">
+      {/* connect button  */}
+      <div className="py-5 flex justify-between">
+        <ConnectWallet btnTitle="Connect" />
       </div>
-      <h1 className="">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      {/* banner */}
+      <div className="mb-14">
+        <Banner />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      {/* unclaimed nfts component */}
+      <UnclaimedNFTs />
+    </div>
   )
 }
 
